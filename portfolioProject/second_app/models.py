@@ -67,7 +67,7 @@ class Footer(models.Model):
     footer_linkedin_link = models.URLField(max_length=999,null=True,blank=True)
     footer_youtube_link = models.URLField(max_length=999,null=True,blank=True)
 
-    footer_copyright = models.CharField(max_length=255,null=True,blank=True)
+#     footer_copyright = models.CharField(max_length=255,null=True,blank=True)
 
 class BasicProduct(models.Model):
     amount_doller = models.CharField(max_length=100, blank=True, null=True)
