@@ -30,18 +30,20 @@ UserModel = get_user_model()
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 # Create your views here.
 def index(request):
-    slider = HomePageTopSlider.objects.all()
-    home_page_get = HomePageYouGet.objects.all()
-    we_complete = HomePageWeComplete.objects.all()
-    achivement = Achievement.objects.all()
-    context = {
-        'slider':slider,
-        'home_page_get':home_page_get,
-        'we_complete':we_complete,
-        'achivement':achivement,
+    
+    return HttpResponse("ok")
+#     slider = HomePageTopSlider.objects.all()
+#     home_page_get = HomePageYouGet.objects.all()
+#     we_complete = HomePageWeComplete.objects.all()
+#     achivement = Achievement.objects.all()
+#     context = {
+#         'slider':slider,
+#         'home_page_get':home_page_get,
+#         'we_complete':we_complete,
+#         'achivement':achivement,
 
-    }
-    return render(request, 'second_app/index.html', context)
+#     }
+#     return render(request, 'second_app/index.html', context)
 
 def sign_up(request):
     registered = False
