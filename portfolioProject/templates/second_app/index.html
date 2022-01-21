@@ -1,0 +1,168 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block main %}
+
+<div class="row section topSlider">
+    <div class="col-12">
+        <div class="swiper-container topSliderContainer">
+            <div class="swiper-wrapper">
+
+                {% for sl in slider %}
+                <div class="swiper-slide"><img src="/media/{{sl.img}}" alt=""></div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+<div class="row hycg section">
+    <div class="sectionTitleContainer">
+        <h2 class="text-center sectionTitle"> Here You Can Get</h2>
+    </div>
+    {% for get in home_page_get %}
+    <div class="col-12">
+        <div class="card">
+            <h4>{{ get.text }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row whc section">
+    <div class="sectionTitleContainer">
+        <h2 class="text-center sectionTitle">We have completed </h2>
+    </div>
+    {% for complete in we_complete %}
+    <div class="col-12">
+
+        <label for="">{{complete.text}}</label>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100"
+                style="width: {{ complete.progress }}%;background-color:{{complete.color}}"></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row text-center winfos section">
+  <h3>Our Achievement's </h3>
+  {% for achivement in achivement %}
+    <div class="col-12">
+        <h3>{{achivement.partner}}+</h3>
+        <h3>Partners</h3>
+    </div>
+    <div class="col-12">
+        <h3>{{achivement.project_done}}+</h3>
+        <h3>Project Done</h3>
+    </div>
+    <div class="col-12">
+        <h3>{{achivement.happy_client}}+</h3>
+        <h3>Happy Client</h3>
+    </div>
+    {% endfor %}
+</div>
+<div class="row clientReview section">
+    <div class="sectionTitleContainer">
+        <h2 class="text-center sectionTitle">Client Review </h2>
+    </div>
+    <div class="col-12">
+        <div class="swiper-container clientReviewContainer">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="content">
+                        <img src="{% static 'images/profileimg1.png' %}" alt="">
+                        <h5 class="pt-2">Client Name</h5>
+                        <div class="rating"><span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span></div>
+                        <div class="comment">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, amet! Lorem ipsum dolor
+                                sit, amet consectetur adipisicing elit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <img src="{% static 'images/profileimg1.png' %}" alt="">
+                        <h5 class="pt-2">Client Name</h5>
+                        <div class="rating"><span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span></div>
+                        <div class="comment">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, amet! Lorem ipsum dolor
+                                sit.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <img src="{% static 'images/profileimg1.png' %}" alt="">
+                        <h5 class="pt-2">Client Name</h5>
+                        <div class="rating"><span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <div class="comment">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, amet! Lorem ipsum dolor
+                                sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="content">
+                        <img src="{% static 'images/profileimg1.png' %}" alt="">
+                        <h5 class="pt-2">Client Name</h5>
+                        <div class="rating"><span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span></div>
+                        <div class="comment">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, amet!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+{% block script %}
+<script>
+    var swiper = new Swiper(".topSliderContainer", {
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+    var swiper = new Swiper(".clientReviewContainer", {
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            500: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1080: {
+                slidesPerView: 3,
+            }
+        }
+    });
+</script>
+{% endblock script %}
+{% endblock main %}

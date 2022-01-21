@@ -1,0 +1,159 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Service{% endblock title %}
+{% block main %}
+
+{% for pro in product %}
+<div class="row section">
+    <div class="sectionTitleContainer">
+        <h2 class="sectionTitle">{{ pro.product_name }}</h2>
+    </div>
+    <div class="col-12">
+        <div class="swiper-container pricingContainer">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="pricingTable">
+                        <div class="pricingTable-header">
+                            <h3 class="title">Basic</h3>
+                        </div>
+                        <div class="price-value">
+                            <span class="amount">${{pro.basic.amount_doller}} / ৳{{pro.basic.amonut_tk}}</span>
+                            <span class="duration">per month</span>
+                        </div>
+                        <ul class="pricing-content">
+                            <li>50GB Disk Space</li>
+                            <li>50 Email Accounts</li>
+                            <li>50GB Bandwidth</li>
+                            <li class="disable">Maintenance</li>
+                            <li class="disable">15 Subdomains</li>
+                        </ul>
+                        <div class="pricingTable-signup">
+                            <a href="#">Demo</a>
+                            <a href="#">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pricingTable red">
+                        <div class="pricingTable-header">
+                            <h3 class="title">Standard</h3>
+                        </div>
+                        <div class="price-value">
+                            <span class="amount">${{pro.standerd.amount_doller}} / ৳{{pro.standerd.amonut_tk}}</span>
+                            <span class="duration">per month</span>
+                        </div>
+                        <ul class="pricing-content">
+
+                          {% if pro.standerd.disk_space == True %}
+                          <li>50GB Disk Space</li>
+                          {% else %}
+                          <li><del>50GB Disk Space</del></li>
+                          {% endif %}
+
+                          {% if pro.standerd.email_account == True %}
+                        <li>50 Email Accounts</li>
+                          {% else %}
+                          <li><del>50 Email Accounts</del></li>
+                          {% endif %}
+
+                          {% if pro.standerd.Bandwidth == True %}
+                        <li>50GB Bandwidth</li>
+                          {% else %}
+                          <li><del>50GB Bandwidth</del></li>
+                          {% endif %}
+
+                          {% if pro.standerd.Maintenance == True %}
+                        <li>Maintenance</li>
+                          {% else %}
+                          <li><del>Maintenance</del></li>
+                          {% endif %}
+
+                          {% if pro.standerd.subdomain == True %}
+                        <li>Subdomains</li>
+                          {% else %}
+                          <li><del>Subdomains</del></li>
+                          {% endif %}
+
+                        </ul>
+                        <div class="pricingTable-signup">
+                            <a href="#">Demo</a>
+                            <a href="#">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pricingTable blue">
+                        <div class="pricingTable-header">
+                            <h3 class="title">Pro</h3>
+                        </div>
+                        <div class="price-value">
+                            <span class="amount">${{pro.pro.amount_doller}} / ৳{{pro.pro.amonut_tk}}</span>
+                            <span class="duration">per month</span>
+                        </div>
+                        <ul class="pricing-content">
+                          {% if pro.pro.disk_space == True %}
+                          <li>50GB Disk Space</li>
+                          {% else %}
+                          <li><del>50GB Disk Space</del></li>
+                          {% endif %}
+
+                            <li>50 Email Accounts</li>
+                            <li>50GB Bandwidth</li>
+                            <li>Maintenance</li>
+                            <li>15 Subdomains</li>
+                        </ul>
+                        <div class="pricingTable-signup">
+                            <a href="#">Demo</a>
+                            <a href="#">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block script %}
+<script>
+    var swiper = new Swiper(".pricingContainer", {
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            500: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1080: {
+                slidesPerView: 3,
+            }
+        }
+    });
+</script>
+{% endblock script %}
+{% endblock main %}
